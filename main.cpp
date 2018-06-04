@@ -27,8 +27,6 @@ SOFTWARE.
 #include "databasecontroler.h"
 #include "qtspotify.h"
 
-#include "mainwindow.h"
-
 #include <QApplication>
 
 
