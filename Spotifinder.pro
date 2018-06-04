@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-03-05T20:01:48
+# Project created by QtCreator 2018-05-26T08:01:48
 #
 #-------------------------------------------------
 
@@ -31,8 +31,7 @@ SOURCES += main.cpp\
     utils.cpp \
     databasecontroler.cpp \
     labelitem.cpp \
-    modelspotifysearch.cpp \
-    mainwindow.cpp
+    modelspotifysearch.cpp
 
 HEADERS  += \
     clientid.h \
@@ -42,13 +41,11 @@ HEADERS  += \
     utils.h \
     databasecontroler.h \
     labelitem.h \
-    modelspotifysearch.h \
-    mainwindow.h
+    modelspotifysearch.h
 
 FORMS    += \
     labelitem.ui \
-    qtspotify.ui \
-    mainwindow.ui
+    qtspotify.ui
 
 DISTFILES +=
 
