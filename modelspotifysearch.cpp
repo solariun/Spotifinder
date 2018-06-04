@@ -215,3 +215,4 @@ MusicDataItem::MusicDataItem(const MusicDataItem &musicDataItem) :
 {
     this->nid=++nDataCount;
 }
+

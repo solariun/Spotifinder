@@ -53,6 +53,7 @@ public:
     MusicDataItem();
     MusicDataItem(const MusicDataItem& musicDataItem);
 
+
     QString strMusic;
     QString strArtist;
     QString strAlbum;

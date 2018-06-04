@@ -575,6 +575,9 @@ void QtSpotify::on_playPlaylist_clicked()
 {
     safePlayerStop();
 
+    if (ui->PlayListView->count() == 0)
+        return;
+
     static int nCurrentIdex;
 
     foreach (const MusicDataItem& musicDataItem, listActivePlaylistMusic)
@@ -676,6 +679,21 @@ void QtSpotify::on_PlayListView_itemDoubleClicked(QListWidgetItem *item)
 
     if (dbControler.deleteMusicDataItemFromPlaylist(pLabelItem->getKey()) == true)
     {
+        int nCount=0;
+        foreach (const MusicDataItem& musicDataItem, listActivePlaylistMusic)
+        {
+            if(musicDataItem.strID.compare(pLabelItem->getKey()) == 0)
+            {
+                qDebug() << __FUNCTION__ << " Deleting: " << listActivePlaylistMusic[nCount].strID << " | " << listActivePlaylistMusic[nCount].strMusic << endl;
+                qDebug() << __FUNCTION__ << "    listActivePlaylistMusic size: " << listActivePlaylistMusic.size() << endl;
+
+                listActivePlaylistMusic.removeAt(nCount);
+            }
+
+            nCount++;
+        }
+
+
         for(int nCount=0; nCount < 2; nCount++)
         {
             pLabelItem->setBackgroundColor(colorHighLight);
@@ -697,6 +715,7 @@ void QtSpotify::on_PlayListView_itemDoubleClicked(QListWidgetItem *item)
 
         ui->PlayListView->repaint();
         qApp->processEvents();
+
     }
     else
     {
@@ -715,8 +734,10 @@ void QtSpotify::on_PlayListView_itemDoubleClicked(QListWidgetItem *item)
         qDebug() << __FUNCTION__ << " Error deleting data: " << dbControler.getLastError() << endl;
     }
 
+    ui->PlayListView->update();
     ui->PlayListView->repaint();
     qApp->processEvents();
+
 }
 
 void QtSpotify::on_SearchButton_clicked()
