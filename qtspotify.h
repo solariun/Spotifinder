@@ -89,6 +89,8 @@ private slots:
 
     void on_PlayListView_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_SearchButton_clicked();
+
 private:
     void loadUserPictureFrom (QUrl objQUrl);
     void configAuthenticationProcess ();

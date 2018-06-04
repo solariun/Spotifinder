@@ -10,5 +10,6 @@
         <file>Images/forward-32.ico</file>
         <file>Images/backward-32.ico</file>
         <file>Images/trash-32.ico</file>
+        <file>Images/search-32.ico</file>
     </qresource>
 </RCC>

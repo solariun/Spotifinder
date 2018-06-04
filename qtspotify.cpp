@@ -714,4 +714,12 @@ void QtSpotify::on_PlayListView_itemDoubleClicked(QListWidgetItem *item)
 
         qDebug() << __FUNCTION__ << " Error deleting data: " << dbControler.getLastError() << endl;
     }
+
+    ui->PlayListView->repaint();
+    qApp->processEvents();
+}
+
+void QtSpotify::on_SearchButton_clicked()
+{
+    on_SearchModel_returnPressed();
 }

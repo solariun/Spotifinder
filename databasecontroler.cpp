@@ -282,7 +282,7 @@ bool DatabaseControler::getPlaylist(QList<MusicDataItem> &listMusics)
 
     QSqlQuery sqlQuery (sqlDatabase);
 
-    VERIFY (sqlQuery.prepare("SELECT * FROM playlist ORDER BY music") == true,
+    VERIFY (sqlQuery.prepare("SELECT * FROM playlist") == true,
             ERR_DB_PREP_SELECT, tr("Error, selecting database config: ") + sqlQuery.lastError().text(), false);
 
     VERIFY (sqlQuery.exec(), ERR_DB_EXEC_SELECT, tr("Error, executing: ") + sqlQuery.lastError().text(), false);
