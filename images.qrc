@@ -1,2 +1,14 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>Images/delete.png</file>
+        <file>Images/square-rounded-24.ico</file>
+        <file>Images/play-32.ico</file>
+        <file>Images/delete-32.ico</file>
+        <file>Images/256.ico</file>
+        <file>Images/approval-32.ico</file>
+        <file>Images/x-mark-3-32.ico</file>
+        <file>Images/forward-32.ico</file>
+        <file>Images/backward-32.ico</file>
+        <file>Images/trash-32.ico</file>
+    </qresource>
+</RCC>

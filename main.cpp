@@ -23,60 +23,38 @@ SOFTWARE.
 */
 
 
-#ifndef LABELITEM_H
-#define LABELITEM_H
 
-#include "utils.h"
+#include "databasecontroler.h"
+#include "qtspotify.h"
 
-#include <QWidget>
-#include <QPixmap>
-#include <QColor>
-#include <QIcon>
+#include "mainwindow.h"
 
-namespace Ui {
-class LabelITem;
-}
+#include <QApplication>
 
-class LabelItem : public QWidget, public Utils::Error
+
+#include <QSslSocket>
+#include <QDebug>
+
+
+
+int main(int argc, char *argv[])
 {
-    Q_OBJECT
-protected:
-    void resizeEvent(QResizeEvent *event);
 
-public:
-    explicit LabelItem(QWidget *parent = 0);
-    ~LabelItem();
+    //  Check the existens of the SSL Libraries
+    //  In Windows they have to be installed separatley
+    if (!QSslSocket::supportsSsl()) {
+        qWarning () << "No SSL Support";
+        exit (1);
+    }
+    qDebug () << QSslSocket::sslLibraryVersionString();
 
-    void setMainIcon (const QPixmap& pixMap);
-    const QPixmap *getMainIcon();
+    QApplication a(argc, argv);
 
-    void setMainLabel (const QString& strValue);
-    QString getMailLabelText ();
+    QtSpotify* w = new QtSpotify();
 
-    void setStatusLabel (const QString& strValue);
-    void setStatusLabel (const QPixmap& pixMap);
+    w->show();
 
-    /*
-     * Routines to add icons to status
-     */
-    void setStatusLabel (QString strIconPath, QSize size);
-    void setStatusLabel (QIcon, QSize size);
+    a.connect(&a, &QApplication::aboutToQuit, [=]() { exit (0);});
 
-    void setKey (const QString strKey);
-
-    void setBackgroundColor (QColor colorBG);
-    void setDefaultFontColor (QColor colorFont);
-
-    QColor getBackgroundColor ();
-
-    QString getKey ();
-
-    void* pObject;
-
-private:
-
-    Ui::LabelITem *ui;
-    QString strKey;
-};
-
-#endif // LABELITEM_H
+    return a.exec();
+}
