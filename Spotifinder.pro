@@ -47,7 +47,9 @@ FORMS    += \
     labelitem.ui \
     qtspotify.ui
 
-DISTFILES +=
+DISTFILES += \
+    README.md \
+    LICENCE
 
 RESOURCES += \
     images.qrc
